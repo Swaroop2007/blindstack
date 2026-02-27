@@ -31,12 +31,11 @@ public class LearningRequestController {
         Skill skill = skillRepository.findById(body.getSkill().getId())
                 .orElseThrow(() -> new RuntimeException("Skill not found"));
 
-        LearningRequest req = LearningRequest.builder()
-                .learner(learner)
-                .mentor(mentor)
-                .skill(skill)
-                .status("PENDING")
-                .build();
+        LearningRequest req = new LearningRequest();
+        req.setLearner(learner);
+        req.setMentor(mentor);
+        req.setSkill(skill);
+        req.setStatus("PENDING");
 
         return learningRequestRepository.save(req);
     }

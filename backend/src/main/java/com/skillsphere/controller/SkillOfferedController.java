@@ -30,11 +30,10 @@ public class SkillOfferedController {
         Skill skill = skillRepository.findById(body.getSkill().getId())
                 .orElseThrow(() -> new RuntimeException("Skill not found"));
 
-        SkillOffered offered = SkillOffered.builder()
-                .user(user)
-                .skill(skill)
-                .level(body.getLevel())
-                .build();
+        SkillOffered offered = new SkillOffered();
+        offered.setUser(user);
+        offered.setSkill(skill);
+        offered.setLevel(body.getLevel());
 
         return skillOfferedRepository.save(offered);
     }

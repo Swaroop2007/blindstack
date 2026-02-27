@@ -29,10 +29,9 @@ public class SkillNeededController {
         Skill skill = skillRepository.findById(body.getSkill().getId())
                 .orElseThrow(() -> new RuntimeException("Skill not found"));
 
-        SkillNeeded needed = SkillNeeded.builder()
-                .user(user)
-                .skill(skill)
-                .build();
+        SkillNeeded needed = new SkillNeeded();
+        needed.setUser(user);
+        needed.setSkill(skill);
 
         return skillNeededRepository.save(needed);
     }

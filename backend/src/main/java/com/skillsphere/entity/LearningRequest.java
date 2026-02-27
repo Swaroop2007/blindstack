@@ -1,14 +1,9 @@
 package com.skillsphere.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
 
 @Entity
 @Table(name = "learning_request")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class LearningRequest {
 
     @Id
@@ -27,7 +22,56 @@ public class LearningRequest {
     @JoinColumn(name = "skill_id", nullable = false)
     private Skill skill;
 
-    // PENDING / ACCEPTED / REJECTED
     @Column(nullable = false)
-    private String status;
+    private String status; // PENDING / ACCEPTED / REJECTED
+
+    public LearningRequest() {}
+
+    public LearningRequest(Long id, User learner, User mentor, Skill skill, String status) {
+        this.id = id;
+        this.learner = learner;
+        this.mentor = mentor;
+        this.skill = skill;
+        this.status = status;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getLearner() {
+        return learner;
+    }
+
+    public void setLearner(User learner) {
+        this.learner = learner;
+    }
+
+    public User getMentor() {
+        return mentor;
+    }
+
+    public void setMentor(User mentor) {
+        this.mentor = mentor;
+    }
+
+    public Skill getSkill() {
+        return skill;
+    }
+
+    public void setSkill(Skill skill) {
+        this.skill = skill;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

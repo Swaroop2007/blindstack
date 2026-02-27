@@ -149,4 +149,4 @@ CREATE TABLE learning_request (id INTEGER PRIMARY KEY, learner_id INT, mentor_id
 
 - The `skillsphere.db` file is created in whichever directory you run `mvn spring-boot:run` from.
 - CORS is set to allow `http://localhost:3000`. Change `WebConfig.java` for production.
-- Lombok is used in entities — make sure your IDE has the Lombok plugin installed.
+- Entities include typical getters/setters; no Lombok is required.

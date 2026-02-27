@@ -1,14 +1,9 @@
 package com.skillsphere.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
 
 @Entity
 @Table(name = "skills")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Skill {
 
     @Id
@@ -17,4 +12,27 @@ public class Skill {
 
     @Column(nullable = false, unique = true)
     private String name;
+
+    public Skill() {}
+
+    public Skill(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

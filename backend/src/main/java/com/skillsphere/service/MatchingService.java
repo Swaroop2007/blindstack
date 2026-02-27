@@ -43,11 +43,11 @@ public class MatchingService {
 
             for (SkillOffered offer : offers) {
                 if (!offer.getUser().getId().equals(userId)) {
-                    results.add(MatchResult.builder()
-                            .mentor(offer.getUser())
-                            .skill(offer.getSkill())
-                            .level(offer.getLevel())
-                            .build());
+                    MatchResult res = new MatchResult();
+                    res.setMentor(offer.getUser());
+                    res.setSkill(offer.getSkill());
+                    res.setLevel(offer.getLevel());
+                    results.add(res);
                 }
             }
         }
